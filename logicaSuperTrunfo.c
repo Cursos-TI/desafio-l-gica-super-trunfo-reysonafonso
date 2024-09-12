@@ -91,7 +91,9 @@ int main() {
     //     printf("Cidade 2 tem maior população.\n");
     // }
     
-    printf("Comparação das cartas");
+    printf("Comparação das cartas\n");
+    printf("Carta 1 - Estado: %s, Código: %s, População: %d\n", estado, codigo, populacao);
+    printf("Carta 2 - Estado: %s, Código: %s, População: %d\n", estado2, codigo2, populacao2);
     if(populacao > populacao2){
         printf("A carta %s tem maior população.\n", codigo);
     }else{
