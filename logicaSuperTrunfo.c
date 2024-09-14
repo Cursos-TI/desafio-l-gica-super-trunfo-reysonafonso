@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // Desafio Super Trunfo - Países
 // Tema 2 - Comparação das Cartas
@@ -22,8 +23,8 @@ int main() {
     // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
     // utilizando a função scanf para capturar as entradas.
     // utilize o código do primeiro desafio
-    char estado, estado2;
-    char codigo[3], codigo2[3];
+    char estado[5], estado2[5];
+    char codigo[5], codigo2[5];
     char nome[20], nome2[20];
     int populacao, populacao2, pontos_tur, pontos_tur2;
     float pib, pib2, area, area2;
@@ -39,46 +40,60 @@ int main() {
     // (Repita para cada propriedade)
 
     printf("Estado: ");
-    scanf("%c", &estado);
+    fgets(estado, sizeof estado, stdin);
+    fflush(stdin);
     
-    printf("Código da carta: ");
-    scanf("%s", &codigo);
+    printf("Codigo da carta: ");
+    fgets(codigo, sizeof codigo, stdin);
+    fflush(stdin);
     
     printf("Nome da cidade: ");
-    scanf("%s", &nome);
+    fgets(nome, sizeof nome, stdin);
+    fflush(stdin);
     
-    printf("População: ");
+    printf("Populacao: ");
     scanf("%d", &populacao);
+    fflush(stdin);
 
-    printf("Área: ");
+    printf("Area: ");
     scanf("%f", &area);
+    fflush(stdin);
 
     printf("PIB: ");
     scanf("%f", &pib);
+    fflush(stdin);
 
-    printf("Número de pontos turisticos: ");
+    printf("Numero de pontos turisticos: ");
     scanf("%d", &pontos_tur);
-
+    fflush(stdin);
+   
     printf("Estado2: ");
-    scanf("%c", &estado2);
+    fgets(estado2, sizeof estado2, stdin);
+    fflush(stdin);
     
-    printf("Código da carta2: ");
-    scanf("%s", &codigo2);
-    
+    printf("Codigo da carta2: ");
+    fgets(codigo2, sizeof codigo2, stdin);
+    fflush(stdin);
+   
     printf("Nome da cidade2: ");
-    scanf("%s", &nome2);
+    fgets(nome2, sizeof nome2, stdin);
+    fflush(stdin);
     
-    printf("População2: ");
+    printf("Populacao2: ");
     scanf("%d", &populacao2);
+    fflush(stdin);
 
-    printf("Área2: ");
+    printf("Area2: ");
     scanf("%f", &area2);
+    fflush(stdin);
 
     printf("PIB2: ");
     scanf("%f", &pib2);
+    fflush(stdin);
 
-    printf("Número de pontos turisticos2: ");
+    printf("Numero de pontos turisticos2: ");
     scanf("%d", &pontos_tur2);
+    fflush(stdin);
 
     // Comparação de Cartas:
     // Desenvolva a lógica de comparação entre duas cartas.
@@ -91,19 +106,53 @@ int main() {
     //     printf("Cidade 2 tem maior população.\n");
     // }
     
-    printf("Comparação das cartas\n");
-    printf("Carta 1 - Estado: %s, Código: %s, População: %d\n", estado, codigo, populacao);
-    printf("Carta 2 - Estado: %s, Código: %s, População: %d\n", estado2, codigo2, populacao2);
+    printf("Comparacao de cartas\n");
+    printf("Carta 1 - Estado: %s, Codigo: %s, Populacao: %d\n", estado, codigo,  populacao);
+    printf("Carta 2 - Estado: %s, Codigo: %s, Populacao: %d\n", estado2, codigo2, populacao2);
     if(populacao > populacao2){
-        printf("A carta %s tem maior população.\n", codigo);
+        printf("A carta %s venceu, tem maior populacao.\n", codigo);
     }else{
-        printf("A carta %s tem maior população.\n", codigo2);
+        printf("A carta %s venceu, tem menor populacao.\n", codigo2);
     }
 
+    printf("Carta 1 - Estado: %s, Codigo: %s, Densidade: %f\n", estado, codigo,  calcular_densidade(populacao, area));
+    printf("Carta 2 - Estado: %s, Codigo: %s, Densidade: %f\n", estado2, codigo2, calcular_densidade(populacao2, area2));
     if(calcular_densidade(populacao, area) < calcular_densidade(populacao2, area2)){
-        printf("A carta %s tem menor densidade\n", codigo);
+        printf("A carta %s venceu, tem menor densidade\n", codigo);
     }else{
-        printf("A carta %s tem menor densidade\n", codigo2);
+        printf("A carta %s venceu, tem menor densidade\n", codigo2);
+    }
+
+    printf("Carta 1 - Estado: %s, Codigo: %s, Pib per capita: %f\n", estado, codigo,  calcular_pib_per_capita(populacao, pib));
+    printf("Carta 2 - Estado: %s, Codigo: %s, Pib per capita: %f\n", estado2, codigo2, calcular_pib_per_capita(populacao2, pib2));
+    if(calcular_pib_per_capita(populacao, pib) > calcular_pib_per_capita(populacao2, pib2)){
+        printf("A carta %s venceu, tem maior pib per capita\n", codigo);
+    }else{
+        printf("A carta %s venceu, tem maior pib per capita\n", codigo2);
+    }
+
+    printf("Carta 1 - Estado: %s, Codigo: %s, Area: %f\n", estado, codigo, area);
+    printf("Carta 2 - Estado: %s, Codigo: %s, Area: %f\n", estado2, codigo2, area2);
+    if(area > area2){
+        printf("A carta %s venceu, tem maior area\n", codigo);
+    }else{
+        printf("A carta %s venceu, tem maior area\n", codigo2);
+    }
+
+    printf("Carta 1 - Estado: %s, Codigo: %s, Pib: %f\n", estado, codigo,  pib);
+    printf("Carta 2 - Estado: %s, Codigo: %s, Pib: %f\n", estado2, codigo2, pib2);
+    if(area > area2){
+        printf("A carta %s venceu, tem maior pib\n", codigo);
+    }else{
+        printf("A carta %s venceu, tem maior pib\n", codigo2);
+    }
+
+    printf("Carta 1 - Estado: %s, Codigo: %s, Pontos turisticos: %d\n", estado, codigo, pontos_tur);
+    printf("Carta 2 - Estado: %s, Codigo: %s, Pontos turisticos: %d\n", estado2, codigo2, pontos_tur2);
+    if(area > area2){
+        printf("A carta %s venceu, tem mais pontos turisticos\n", codigo);
+    }else{
+        printf("A carta %s venceu, tem mais pontos turisticos\n", codigo2);
     }
 
 
