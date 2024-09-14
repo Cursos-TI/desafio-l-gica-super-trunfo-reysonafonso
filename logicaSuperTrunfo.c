@@ -23,7 +23,7 @@ int main() {
     // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
     // utilizando a função scanf para capturar as entradas.
     // utilize o código do primeiro desafio
-    char estado[5], estado2[5];
+    char estado[4], estado2[4];
     char codigo[5], codigo2[5];
     char nome[20], nome2[20];
     int populacao, populacao2, pontos_tur, pontos_tur2;
@@ -105,6 +105,13 @@ int main() {
     // } else {
     //     printf("Cidade 2 tem maior população.\n");
     // }
+
+    // Exibição dos Resultados:
+    // Após realizar as comparações, exiba os resultados para o usuário.
+    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+
+    // Exemplo:
+    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
     
     printf("Comparacao de cartas\n");
     printf("Carta 1 - Estado: %s, Codigo: %s, Populacao: %d\n", estado, codigo,  populacao);
@@ -138,7 +145,6 @@ int main() {
     }else{
         printf("A carta %s venceu, tem maior area\n", codigo2);
     }
-
     printf("Carta 1 - Estado: %s, Codigo: %s, Pib: %f\n", estado, codigo,  pib);
     printf("Carta 2 - Estado: %s, Codigo: %s, Pib: %f\n", estado2, codigo2, pib2);
     if(area > area2){
@@ -146,7 +152,6 @@ int main() {
     }else{
         printf("A carta %s venceu, tem maior pib\n", codigo2);
     }
-
     printf("Carta 1 - Estado: %s, Codigo: %s, Pontos turisticos: %d\n", estado, codigo, pontos_tur);
     printf("Carta 2 - Estado: %s, Codigo: %s, Pontos turisticos: %d\n", estado2, codigo2, pontos_tur2);
     if(area > area2){
@@ -155,14 +160,7 @@ int main() {
         printf("A carta %s venceu, tem mais pontos turisticos\n", codigo2);
     }
 
-
-
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    
 
     return 0;
 }
